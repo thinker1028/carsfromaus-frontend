@@ -11,8 +11,9 @@
                         </v-avatar>
                         <v-btn @click="openAvatarPicker">Change Avatar</v-btn>
                     </v-flex> -->
-                    <h3> <v-icon>person</v-icon>{{ user.first_name }} {{ user.last_name}} </h3>
+                    <h3> <v-icon>person</v-icon>{{ user ? user.first_name: '' }} {{ user ? user.last_name : ''}} </h3>
                     <v-text-field
+                        v-if="user"
                         v-model="user.email"
                         readonly
                         prepend-icon="email"

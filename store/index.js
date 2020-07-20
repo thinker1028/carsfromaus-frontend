@@ -1,5 +1,5 @@
-import cookie from 'cookie'
-import {setAuthToken, resetAuthToken} from '~/utils/auth'
+// import cookie from 'cookie'
+// import {setAuthToken, resetAuthToken} from '~/utils/auth'
 
 export const state = () => ({
   sidebar: false
@@ -12,7 +12,7 @@ export const mutations = {
 }
 
 export const actions = {
-  nuxtServerInit ({dispatch}, context) {
+  /* nuxtServerInit ({dispatch}, context) {
     return new Promise((resolve, reject) => {
       const cookies = cookie.parse(context.req.headers.cookie || '')
       if (cookies.hasOwnProperty('x-access-token')) {
@@ -31,5 +31,5 @@ export const actions = {
         resolve(false)
       }
     })
-  }
+  } */
 }
