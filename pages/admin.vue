@@ -19,9 +19,11 @@
 </template>
 
 <script>
+import {mapGetters} from 'vuex'
 export default {
   computed: {
-    user () { return this.$store.state.auth ? this.$store.state.auth.user : null }
+    ...mapGetters('auth', ['get_token']),
+    user () { return this.get_token ? this.$store.state.auth.user : null }
   },
   methods: {
     checkMe () {

@@ -19,7 +19,7 @@
 
 <script>
 // import {googleClientId} from '~/config'
-
+import {mapGetters} from 'vuex'
 export default {
   layout: 'fullscreen',
   data () {
@@ -32,6 +32,9 @@ export default {
       // google_loading: false,
       // google_ready: false
     }
+  },
+  computed: {
+    ...mapGetters('auth', ['get_token'])
   },
   mounted () {
     // window.gapiOnLoadCallback = () => {

@@ -3,7 +3,8 @@ import {setAuthToken, resetAuthToken} from '~/utils/auth'
 import cookies from 'js-cookie'
 
 export const state = () => ({
-  user: null
+  user: null,
+  token: ''
 })
 
 export const mutations = {
@@ -12,6 +13,21 @@ export const mutations = {
   },
   reset_user (store) {
     store.user = null
+    cookies.set('x-access-token', '', {expires: 7})
+    cookies.set('x-refresh-token', '', {expires: 7})
+    setAuthToken('')
+
+    console.log("cookies.getJSON('x-access-token')", cookies.getJSON('x-access-token'))
+  },
+  set_token (store) {
+    store.token = cookies.getJSON('x-access-token')
+    console.log('store.token', store.token)
+  }
+}
+export const getters = {
+  get_token (state) {
+    console.log('state', state)
+    return cookies.getJSON('x-access-token')
   }
 }
 
