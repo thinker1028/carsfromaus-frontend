@@ -61,14 +61,17 @@ export default {
     submit () {
       this.alert = null
       this.loading = true
-      this.$store.dispatch('auth/login', {
+      this.$store.dispatch('auth/signin', {
         email: this.email,
         password: this.password
       }).then(result => {
-        console.log('result', result)
-        this.alert = {type: 'success', message: result.data.message}
         this.loading = false
-        this.$router.push('/admin')
+        if (result.status >= 200 && result.status < 300) {
+          this.alert = {type: 'success', message: result.data.message ? result.data.message : 'Signin Success'}
+          this.$router.push('/admin')
+        } else {
+          this.alert = {type: 'error', message: result.data.message ? result.data.message : 'Signin Failed'}
+        }
       }).catch(error => {
         this.loading = false
         if (error.response && error.response.data) {

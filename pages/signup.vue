@@ -12,7 +12,7 @@
           <v-btn type="submit" :loading="loading" :disabled="loading">SIGN UP</v-btn>
         </v-form>
       </v-card-text>
-      <a href='/login'>Back to login form</a>
+      <a href='/signin'>Back to login form</a>
     </v-card>
   </v-layout>
 </template>
@@ -45,10 +45,13 @@ export default {
         last_name: this.last_name,
         role: 'Admin'
       }).then(result => {
-        console.log('result', result)
-        this.alert = {type: 'success', message: result.data.message}
         this.loading = false
-        this.$router.push('/admin')
+        if (result.status >= 200 && result.status < 300) {
+          this.alert = {type: 'success', message: result.data.message ? result.data.message : 'Signup Success'}
+          this.$router.push('/signin')
+        } else {
+          this.alert = {type: 'error', message: result.data.message ? result.data.message : 'Signup Failed'}
+        }
       }).catch(error => {
         this.loading = false
         if (error.response && error.response.data) {

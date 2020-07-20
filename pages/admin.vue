@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     checkMe () {
-      this.$store.dispatch('auth/fetch').then(result => {
+      this.$store.dispatch('auth/profile').then(result => {
         this.$router.push('/profile')
       })
     },

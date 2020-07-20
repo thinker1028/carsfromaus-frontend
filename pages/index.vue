@@ -23,7 +23,7 @@
         <v-card-actions>
           <v-spacer></v-spacer>
           <!-- <v-btn color="primary" flat nuxt to="/inspire">Continue</v-btn> -->
-          <v-btn color="primary" flat nuxt to="/login">Log In</v-btn>
+          <v-btn color="primary" flat nuxt to="/signin">Log In</v-btn>
           <v-btn color="primary" flat nuxt to="/admin">Admin</v-btn>
         </v-card-actions>
       </v-card>
