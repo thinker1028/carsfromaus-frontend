@@ -2,12 +2,12 @@ import api from '~/api'
 import {setAuthToken, resetAuthToken} from '~/utils/auth'
 import cookies from 'js-cookie'
 
-export const state = () => ({
+const state = () => ({
   user: null,
   token: ''
 })
 
-export const mutations = {
+const mutations = {
   set_user (store, data) {
     store.user = data
   },
@@ -19,15 +19,16 @@ export const mutations = {
     console.log('store.token', store.token)
   }
 }
-export const getters = {
+const getters = {
   get_token (state) {
     console.log('state', state)
     return cookies.getJSON('x-access-token')
   }
 }
 
-export const actions = {
+const actions = {
   signup ({commit}, reqdata) {
+    resetAuthToken()
     return api.auth.signup(reqdata)
       .then(response => {
         console.log(response)
@@ -142,4 +143,10 @@ export const actions = {
     cookies.remove('x-access-token')
     return Promise.resolve()
   }
+}
+export default {
+  state,
+  getters,
+  actions,
+  mutations
 }

@@ -4,7 +4,7 @@
       <v-card-title class="headline">Log In</v-card-title>
       <v-card-text>
         <v-form @submit.prevent="submit">
-          <v-alert v-if="alert" :type="alert.type" value="true">{{alert.message}}</v-alert>
+          <v-alert v-if="alert" :type="alert.type" checked="true">{{alert.message}}</v-alert>
           <v-text-field label="Email" v-model="email" class="leading-4"></v-text-field>
           <v-text-field label="Password" v-model="password" class="leading-4" type="password"></v-text-field>
           <!-- <a href='/forgotpassword'>Forgot Password?</a> -->
