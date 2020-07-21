@@ -1,6 +1,6 @@
 <template>
     <v-container fluid>
-        <v-layout column>
+        <v-layout justify-center align-center>
             <v-card
               max-width="344"
             >
@@ -11,12 +11,12 @@
                         </v-avatar>
                         <v-btn @click="openAvatarPicker">Change Avatar</v-btn>
                     </v-flex> -->
-                    <h3> <v-icon>person</v-icon>{{ user ? user.first_name: '' }} {{ user ? user.last_name : ''}} </h3>
+                    <h3> <v-icon>mdi-account</v-icon>{{ user ? user.first_name: '' }} {{ user ? user.last_name : ''}} </h3>
                     <v-text-field
                         v-if="user"
                         v-model="user.email"
                         readonly
-                        prepend-icon="email"
+                        prepend-icon="mdi-email"
                     />
                     <v-btn color="primary" text nuxt to="/">Home</v-btn>
                     <v-btn color="primary" text nuxt to="/updateprofile">Update</v-btn>

@@ -8,7 +8,7 @@
           <v-text-field label="Email" v-model="email"></v-text-field>
           <v-text-field label="Current Password" v-model="current_password" type="password"></v-text-field>
           <v-text-field label="New Password" v-model="new_password" type="password"></v-text-field>
-          <v-btn type="submit" :loading="loading" :disabled="loading">Update</v-btn>
+          <v-btn type="submit" :loading="loading" :disabled="loading" class="w-full mb-1" color="error">Update</v-btn>
         </v-form>
       </v-card-text>
     </v-card>

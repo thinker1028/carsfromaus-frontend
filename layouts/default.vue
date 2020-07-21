@@ -33,9 +33,8 @@
       <v-img
         src="https://media.publit.io/file/icon-N.png"
         height="64"
-        max-width="86"
+        max-width="125"
         contain
-        class="grey darken-4"
       ></v-img>
       <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
@@ -93,7 +92,7 @@
       :fixed="fixed"
       app
     >
-      <span>&copy; {{ new Date().getFullYear() }}</span>
+      <span>&copy; {{ new Date().getFullYear() }} Cars from Australia</span>
     </v-footer>
   </v-app>
 </template>
@@ -106,21 +105,16 @@ export default {
       drawer: true,
       fixed: false,
       items: [
-        {
-          icon: 'mdi-apps',
-          title: 'Welcome',
-          to: '/'
-        },
-        {
-          icon: 'mdi-chart-bubble',
-          title: 'Inspire',
-          to: '/inspire'
-        }
+          { icon: 'mdi-home', title: 'Home', to: '/' },
+          { icon: 'mdi-heart', title: 'Favourites', to: '/favourites' },
+          { icon: 'mdi-bookmark', title: 'Bookmarks', to: '/bookmarks' },
+          { icon: 'mdi-google-ads', title: 'Ads Management', to: '/adsmanagement' },
+          { icon: 'mdi-account', title: 'Account Settings', to: '/profile' }
       ],
       miniVariant: false,
       right: true,
       rightDrawer: false,
-      title: 'Vuetify.js'
+      title: ' Cars from Australia'
     }
   }
 }

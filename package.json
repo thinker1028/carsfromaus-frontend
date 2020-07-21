@@ -1,8 +1,8 @@
 {
-  "name": "portfoliastoryblok",
+  "name": "carsfromaus",
   "version": "1.0.0",
-  "description": "My neat Nuxt.js project",
-  "author": "Lovely-Fellow",
+  "description": "cars from Australia",
+  "author": "",
   "private": true,
   "scripts": {
     "dev": "nuxt",
