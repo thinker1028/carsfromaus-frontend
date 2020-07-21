@@ -1,112 +1,117 @@
 <template>
-  <v-app>
+  <v-app dark>
     <v-navigation-drawer
-      :mini-variant.sync="miniVariant"
-      :clipped="clipped"
       v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
       fixed
       app
     >
       <v-list>
-        <v-list-tile
-          router
-          :to="item.to"
-          :key="i"
+        <v-list-item
           v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
           exact
         >
-          <v-list-tile-action>
-            <v-icon v-html="item.icon"></v-icon>
-          </v-list-tile-action>
-          <v-list-tile-content>
-            <v-list-tile-title v-text="item.title"></v-list-tile-title>
-          </v-list-tile-content>
-        </v-list-tile>
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
       </v-list>
     </v-navigation-drawer>
-    <v-toolbar fixed app color="white" :clipped-left="clipped">
-      <v-img
-        src="https://media.publit.io/file/icon-N.png"
-        height="64"
-        max-width="86"
-        contain
-        class="grey darken-4"
-      ></v-img>
-      <!-- <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
       >
-        <v-icon v-html="miniVariant ? 'chevron_right' : 'chevron_left'"></v-icon>
+        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
       <v-btn
         icon
         @click.stop="clipped = !clipped"
       >
-        <v-icon>web</v-icon>
+        <v-icon>mdi-application</v-icon>
       </v-btn>
       <v-btn
         icon
         @click.stop="fixed = !fixed"
       >
-        <v-icon>remove</v-icon>
-      </v-btn> -->
-      <v-toolbar-title v-text="title"></v-toolbar-title>
-      <v-spacer></v-spacer>
-      <!-- <v-btn
+        <v-icon>mdi-minus</v-icon>
+      </v-btn>
+      <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
-        <v-icon>menu</v-icon>
-      </v-btn> -->
-      <v-btn color="primary" flat nuxt to="/signin">Log In</v-btn>
-      <v-btn color="primary" flat nuxt to="/admin">Admin</v-btn>
-    </v-toolbar>
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+    </v-app-bar>
     <v-content>
       <v-container>
         <nuxt />
       </v-container>
     </v-content>
-    <!-- <v-navigation-drawer
-      temporary
-      :right="right"
+    <v-navigation-drawer
       v-model="rightDrawer"
+      :right="right"
+      temporary
       fixed
     >
       <v-list>
-        <v-list-tile @click.native="right = !right">
-          <v-list-tile-action>
-            <v-icon light>compare_arrows</v-icon>
-          </v-list-tile-action>
-          <v-list-tile-title>Switch drawer (click me)</v-list-tile-title>
-        </v-list-tile>
+        <v-list-item @click.native="right = !right">
+          <v-list-item-action>
+            <v-icon light>
+              mdi-repeat
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+        </v-list-item>
       </v-list>
-    </v-navigation-drawer> -->
-    <v-footer :fixed="fixed" app>
-      <span>&copy; 2020 Cars from Australia</span>
+    </v-navigation-drawer>
+    <v-footer
+      :fixed="fixed"
+      app
+    >
+      <span>&copy; {{ new Date().getFullYear() }}</span>
     </v-footer>
   </v-app>
 </template>
 
 <script>
-  export default {
-    data () {
-      return {
-        clipped: false,
-        drawer: true,
-        fixed: false,
-        items: [
-          { icon: 'home', title: 'Home', to: '/' },
-          { icon: 'favorite', title: 'Favourites', to: '/favourites' },
-          { icon: 'bookmark', title: 'Bookmarks', to: '/bookmarks' },
-          { icon: 'post_add', title: 'Ads Management', to: '/adsmanagement' },
-          { icon: 'account_box', title: 'Account Settings', to: '/profile' }
-        ],
-        miniVariant: false,
-        right: true,
-        rightDrawer: false,
-        title: 'Cars from Australia'
-      }
+export default {
+  data () {
+    return {
+      clipped: false,
+      drawer: false,
+      fixed: false,
+      items: [
+        {
+          icon: 'mdi-apps',
+          title: 'Welcome',
+          to: '/'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Inspire',
+          to: '/inspire'
+        }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Vuetify.js'
     }
   }
+}
 </script>
