@@ -10,7 +10,7 @@
           <!-- <a href='/forgotpassword'>Forgot Password?</a> -->
           <v-btn type="submit" :loading="loading" :disabled="loading">Log In</v-btn>
         </v-form>
-        <span>Don't have an account?</span>
+        <span class='text-indigo-500'>Don't have an account?</span>
         <a href="/signup">Sign up</a>
       </v-card-text>
     </v-card>
