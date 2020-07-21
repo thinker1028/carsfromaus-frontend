@@ -108,7 +108,7 @@ export default {
           { icon: 'mdi-home', title: 'Home', to: '/' },
           { icon: 'mdi-heart', title: 'Favourites', to: '/favourites' },
           { icon: 'mdi-bookmark', title: 'Bookmarks', to: '/bookmarks' },
-          { icon: 'mdi-google-ads', title: 'Ads Management', to: '/adsmanagement' },
+          { icon: 'mdi-google-ads', title: 'Ads Management', to: '/advertisement' },
           { icon: 'mdi-account', title: 'Account Settings', to: '/profile' }
       ],
       miniVariant: false,

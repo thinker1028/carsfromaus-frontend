@@ -9,7 +9,7 @@
           <v-text-field label="First Name" v-model="first_name"></v-text-field>
           <v-text-field label="Last Name" v-model="last_name"></v-text-field>
           <v-text-field label="Phone Nubmer" v-model="phone_number"></v-text-field>
-          <v-btn type="submit" :loading="loading" :disabled="loading" class="w-full mb-1" color="warning">Update</v-btn>
+          <v-btn type="submit" :loading="loading" :disabled="loading" class="w-full mb-1" color="error">Update</v-btn>
         </v-form>
       </v-card-text>
     </v-card>
