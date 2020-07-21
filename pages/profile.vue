@@ -18,6 +18,8 @@
                         readonly
                         prepend-icon="email"
                     />
+                    <v-btn color="primary" flat nuxt to="/">Home</v-btn>
+                    <v-btn color="primary" flat nuxt to="/updateprofile">Update</v-btn>
                 </v-card-text>
                 <!-- <v-card-actions>
                     <v-btn color="primary" :loading="loading" @click.native="update">

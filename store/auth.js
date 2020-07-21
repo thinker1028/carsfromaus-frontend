@@ -13,11 +13,6 @@ export const mutations = {
   },
   reset_user (store) {
     store.user = null
-    cookies.set('x-access-token', '', {expires: 7})
-    cookies.set('x-refresh-token', '', {expires: 7})
-    setAuthToken('')
-
-    console.log("cookies.getJSON('x-access-token')", cookies.getJSON('x-access-token'))
   },
   set_token (store) {
     store.token = cookies.getJSON('x-access-token')
@@ -81,6 +76,7 @@ export const actions = {
         */
         switch (response.status) {
           case 200:
+            console.log('signin', response)
             cookies.set('x-access-token', response.data.access_token, {expires: 7})
             cookies.set('x-refresh-token', response.data.refresh_token, {expires: 7})
             setAuthToken(response.data.access_token)
@@ -95,9 +91,34 @@ export const actions = {
       })
   },
   profile ({commit}) {
-    return api.auth.profile({Authorization: 'Bearer ' + cookies.get('x-access-token')})
+    return api.profile.profile({Authorization: 'Bearer ' + cookies.get('x-access-token')})
       .then(response => {
-        console.log('fetch', response.data)
+        console.log('profile', response.data)
+        commit('set_user', response.data)
+        return response
+      })
+      .catch(error => {
+        commit('reset_user')
+        return error
+      })
+  },
+  passwordreset ({commit}, reqdata) {
+    return api.profile.passwordreset({Authorization: 'Bearer ' + cookies.get('x-access-token')}, reqdata)
+      .then(response => {
+        console.log('passwordreset', response.data)
+        commit('set_user', response.data)
+        return response
+      })
+      .catch(error => {
+        commit('reset_user')
+        return error
+      })
+  },
+  updateprofile ({commit}, reqdata) {
+    console.log('updateprofile', cookies.get('x-access-token'))
+    return api.profile.updateprofile({Authorization: 'Bearer ' + cookies.get('x-access-token')}, reqdata)
+      .then(response => {
+        console.log('updateprofile', response.data)
         commit('set_user', response.data)
         return response
       })

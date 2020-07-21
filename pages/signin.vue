@@ -7,7 +7,7 @@
           <v-alert v-if="alert" :type="alert.type" value="true">{{alert.message}}</v-alert>
           <v-text-field label="Email" v-model="email"></v-text-field>
           <v-text-field label="Password" v-model="password" type="password"></v-text-field>
-          <a href='/forgotpassword'>Forgot Password?</a>
+          <!-- <a href='/forgotpassword'>Forgot Password?</a> -->
           <v-btn type="submit" :loading="loading" :disabled="loading">Log In</v-btn>
         </v-form>
         <span>Don't have an account?</span>

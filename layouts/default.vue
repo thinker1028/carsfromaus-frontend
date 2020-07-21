@@ -1,6 +1,6 @@
 <template>
   <v-app>
-    <!-- <v-navigation-drawer
+    <v-navigation-drawer
       :mini-variant.sync="miniVariant"
       :clipped="clipped"
       v-model="drawer"
@@ -23,9 +23,15 @@
           </v-list-tile-content>
         </v-list-tile>
       </v-list>
-    </v-navigation-drawer> -->
-    <!-- <v-toolbar fixed app :clipped-left="clipped">
-      <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
+    </v-navigation-drawer>
+    <v-toolbar fixed app color="white" :clipped-left="clipped">
+      <img
+        src="https://media.publit.io/file/icon-N.png"
+        height="64"
+        contain
+        class="grey darken-4"
+      />
+      <!-- <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -43,16 +49,18 @@
         @click.stop="fixed = !fixed"
       >
         <v-icon>remove</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-toolbar-title v-text="title"></v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-btn
+      <!-- <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>menu</v-icon>
-      </v-btn>
-    </v-toolbar> -->
+      </v-btn> -->
+      <v-btn color="primary" flat nuxt to="/signin">Log In</v-btn>
+      <v-btn color="primary" flat nuxt to="/admin">Admin</v-btn>
+    </v-toolbar>
     <v-content>
       <v-container>
         <nuxt />
@@ -74,7 +82,7 @@
       </v-list>
     </v-navigation-drawer> -->
     <v-footer :fixed="fixed" app>
-      <span>&copy; 2020</span>
+      <span>&copy; 2020 Cars from Australia</span>
     </v-footer>
   </v-app>
 </template>
@@ -87,13 +95,16 @@
         drawer: true,
         fixed: false,
         items: [
-          { icon: 'apps', title: 'Welcome', to: '/' },
-          { icon: 'bubble_chart', title: 'Inspire', to: '/inspire' }
+          { icon: 'home', title: 'Home', to: '/' },
+          { icon: 'favorite', title: 'Favourites', to: '/favourites' },
+          { icon: 'bookmark', title: 'Bookmarks', to: '/bookmarks' },
+          { icon: 'post_add', title: 'Ads Management', to: '/adsmanagement' },
+          { icon: 'account_box', title: 'Account Settings', to: '/profile' }
         ],
         miniVariant: false,
         right: true,
         rightDrawer: false,
-        title: 'Vuetify.js'
+        title: 'Cars from Australia'
       }
     }
   }

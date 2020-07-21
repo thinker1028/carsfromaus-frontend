@@ -11,6 +11,7 @@
           <v-spacer></v-spacer>
           <v-btn color="primary" flat nuxt to="/">Main Page</v-btn>
           <v-btn color="primary" flat @click="checkMe">Check Me</v-btn>
+          <v-btn color="primary" flat @click="resetPassword">Reset Password</v-btn>
           <v-btn color="primary" flat @click="logOut">Log Out</v-btn>
         </v-card-actions>
       </v-card>
@@ -29,6 +30,11 @@ export default {
     checkMe () {
       this.$store.dispatch('auth/profile').then(result => {
         this.$router.push('/profile')
+      })
+    },
+    resetPassword () {
+      this.$store.dispatch('auth/passwordreset').then(result => {
+        this.$router.push('/passwordreset')
       })
     },
     logOut () {
