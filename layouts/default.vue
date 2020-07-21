@@ -1,5 +1,5 @@
 <template>
-  <v-app dark>
+  <v-app light>
     <v-navigation-drawer
       v-model="drawer"
       :mini-variant="miniVariant"
@@ -28,8 +28,16 @@
       :clipped-left="clipped"
       fixed
       app
+      color="white"
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-img
+        src="https://media.publit.io/file/icon-N.png"
+        height="64"
+        max-width="86"
+        contain
+        class="grey darken-4"
+      ></v-img>
+      <!-- <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
         icon
         @click.stop="miniVariant = !miniVariant"
@@ -47,15 +55,17 @@
         @click.stop="fixed = !fixed"
       >
         <v-icon>mdi-minus</v-icon>
-      </v-btn>
+      </v-btn> -->
       <v-toolbar-title v-text="title" />
       <v-spacer />
-      <v-btn
+      <!-- <v-btn
         icon
         @click.stop="rightDrawer = !rightDrawer"
       >
         <v-icon>mdi-menu</v-icon>
-      </v-btn>
+      </v-btn> -->
+      <v-btn color="primary" text nuxt to="/signin">Log In</v-btn>
+      <v-btn color="primary" text nuxt to="/admin">Admin</v-btn>
     </v-app-bar>
     <v-content>
       <v-container>
@@ -93,7 +103,7 @@ export default {
   data () {
     return {
       clipped: false,
-      drawer: false,
+      drawer: true,
       fixed: false,
       items: [
         {
