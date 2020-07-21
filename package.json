@@ -23,9 +23,10 @@
     "cookie": "^0.3.1",
     "js-cookie": "^2.2.0",
     "nuxt": "^1.0.0",
-    "vuetify": "^0.17.4"
+    "vuetify": "1.5.24"
   },
   "devDependencies": {
+    "@nuxtjs/vuetify": "^1.11.2",
     "babel-eslint": "^7.2.3",
     "eslint": "^4.3.0",
     "eslint-config-standard": "^10.2.1",
@@ -36,6 +37,6 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-standard": "^3.0.1",
     "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.1"
+    "stylus-loader": "^3.0.1",
   }
 }

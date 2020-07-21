@@ -25,12 +25,13 @@
       </v-list>
     </v-navigation-drawer>
     <v-toolbar fixed app color="white" :clipped-left="clipped">
-      <img
+      <v-img
         src="https://media.publit.io/file/icon-N.png"
         height="64"
+        max-width="86"
         contain
         class="grey darken-4"
-      />
+      ></v-img>
       <!-- <v-toolbar-side-icon @click="drawer = !drawer"></v-toolbar-side-icon>
       <v-btn
         icon
