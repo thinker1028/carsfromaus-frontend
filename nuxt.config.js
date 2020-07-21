@@ -31,6 +31,7 @@ export default {
   */
   plugins: [
     '~/api/init.js',
+    '@plugins/vuetify'
   ],
   /*
   ** Nuxt.js dev-modules

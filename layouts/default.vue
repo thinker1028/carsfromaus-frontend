@@ -67,11 +67,11 @@
       <v-btn color="primary" text nuxt to="/signin">Log In</v-btn>
       <v-btn color="primary" text nuxt to="/admin">Admin</v-btn>
     </v-app-bar>
-    <v-content>
+    <v-main>
       <v-container>
         <nuxt />
       </v-container>
-    </v-content>
+    </v-main>
     <v-navigation-drawer
       v-model="rightDrawer"
       :right="right"
